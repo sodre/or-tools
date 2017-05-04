@@ -605,34 +605,6 @@ $(OBJ_DIR)/sat/sat_runner.$O: $(EX_DIR)/cpp/sat_runner.cc $(EX_DIR)/cpp/opb_read
 $(BIN_DIR)/sat_runner$E: $(OR_TOOLS_LIBS) $(OBJ_DIR)/sat/sat_runner.$O
 	$(CCC) $(CFLAGS) $(OBJ_DIR)$Ssat$Ssat_runner.$O $(OR_TOOLS_LNK) $(OR_TOOLS_LD_FLAGS) $(EXE_OUT)$(BIN_DIR)$Ssat_runner$E
 
-# OR Tools unique library.
-
-$(LIB_DIR)/$(LIB_PREFIX)ortools.$(LIB_SUFFIX): \
-    $(BASE_LIB_OBJS) \
-    $(UTIL_LIB_OBJS) \
-    $(LP_DATA_LIB_OBJS) \
-    $(GLOP_LIB_OBJS) \
-    $(GRAPH_LIB_OBJS) \
-    $(ALGORITHMS_LIB_OBJS) \
-    $(SAT_LIB_OBJS) \
-    $(BOP_LIB_OBJS) \
-    $(LP_LIB_OBJS) \
-    $(CP_LIB_OBJS)
-	$(LINK_CMD) \
-	  $(LDOUT)$(LIB_DIR)$S$(LIB_PREFIX)ortools.$(LIB_SUFFIX) \
-	  $(BASE_LIB_OBJS) \
-	  $(UTIL_LIB_OBJS) \
-	  $(LP_DATA_LIB_OBJS) \
-	  $(GLOP_LIB_OBJS) \
-	  $(GRAPH_LIB_OBJS) \
-	  $(ALGORITHMS_LIB_OBJS) \
-	  $(SAT_LIB_OBJS) \
-	  $(BOP_LIB_OBJS) \
-	  $(LP_LIB_OBJS) \
-	  $(CP_LIB_OBJS) \
-	  $(DEPENDENCIES_LNK) \
-	  $(OR_TOOLS_LD_FLAGS)
-
 # compile and run C++ examples
 
 ccc: $(BIN_DIR)$S$(basename $(notdir $(EX)))$E
